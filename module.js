@@ -298,8 +298,7 @@ async function serverData ({
   setTimeout(()=>{
     MudiExperience({
       tokenApi:'LXhG4UEYLjdz5fiN3AUr',
-      //skuNumber:document.querySelector('.vtex-product-identifier-0-x-product-identifier__value').innerHTML,
-      skuNumber:'Prubaelectrojaponesa',
+      skuNumber:document.querySelector('.document.querySelector('.value-field item').innerHTML,
       idCompanyMudi:'0',
       color:'#d73e46',
       containerBtns:document.querySelector('.zoomPad'),
