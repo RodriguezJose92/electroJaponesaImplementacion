@@ -306,4 +306,4 @@ async function serverData ({
       zIndexModal:1000000,
     });
   
-  },2000)
+  },6000)
