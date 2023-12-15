@@ -295,12 +295,15 @@ async function serverData ({
     sendDataLayer({sku:skuNumber})
   };
 
-  MudiExperience({
-    tokenApi:'LXhG4UEYLjdz5fiN3AUr',
-    //skuNumber:document.querySelector('.vtex-product-identifier-0-x-product-identifier__value').innerHTML,
-    skuNumber:'Prubaelectrojaponesa',
-    idCompanyMudi:'0',
-    color:'#d73e46',
-    containerBtns:document.querySelector('.zoomPad'),
-    zIndexModal:1000000,
-  });
+  setTimeout(()=>{
+    MudiExperience({
+      tokenApi:'LXhG4UEYLjdz5fiN3AUr',
+      //skuNumber:document.querySelector('.vtex-product-identifier-0-x-product-identifier__value').innerHTML,
+      skuNumber:'Prubaelectrojaponesa',
+      idCompanyMudi:'0',
+      color:'#d73e46',
+      containerBtns:document.querySelector('.zoomPad'),
+      zIndexModal:1000000,
+    });
+  
+  },2000)
