@@ -306,3 +306,5 @@ async function serverData ({
     });
   
   },6000)
+
+console.log('probandoCDN')
