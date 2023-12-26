@@ -298,7 +298,7 @@ async function serverData ({
   setTimeout(()=>{
     MudiExperience({
       tokenApi:'LXhG4UEYLjdz5fiN3AUr',
-      skuNumber:document.querySelector('.document.querySelector('.value-field item').innerHTML,
+      skuNumber:document.querySelector('.value-field item').innerHTML,
       idCompanyMudi:'0',
       color:'#d73e46',
       containerBtns:document.querySelector('.zoomPad'),
