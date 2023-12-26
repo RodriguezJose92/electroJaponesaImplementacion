@@ -305,4 +305,6 @@ async function serverData ({
       zIndexModal:1000000,
     });
   
-  },6000)
+  },6000);
+
+console.log('probanding');
