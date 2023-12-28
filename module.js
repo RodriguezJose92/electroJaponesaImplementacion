@@ -1,3 +1,6 @@
+const element1 = document.querySelector('#show');
+const element2 = document.querySelector('#show .thumbs');
+
 /* Petición SeverMudi */
 async function serverData ({
     token = undefined,
@@ -40,8 +43,6 @@ async function serverData ({
   /** Cuando se obtiene una respuesta positiva del server se crean dos botones ( btn3D y btnAR ) */
   function createBtns({father,sku,idCompany,link3D,color,zBtns,zModal,ButtonsY}){
   
-    const fatherContainer = father;
-  
     // Creación del contenedor principal para los botones
     const containerPrincipalBtns = document.createElement('DIV');
     containerPrincipalBtns.classList.add('ContainerBtnsMudi');
@@ -58,7 +59,8 @@ async function serverData ({
     containerPrincipalBtns.querySelector('.btnMudi3D').addEventListener('click',()=>{ createModal3D({link3D:link3D,color:color,zModal:zModal}) },false);
     containerPrincipalBtns.querySelector('.btnMudiAR').addEventListener('click',()=>{ createModalAR({color:color, idCompany:idCompany, sku:sku,zModal:zModal}) },false);
   
-    father.appendChild(containerPrincipalBtns)
+    const brother = document.querySelector('#show .thumbs');
+    father.insertBefore(containerPrincipalBtns,brother)
   
     setTimeout(()=>{
       const tool = document.querySelector('.showTooltipInit');
@@ -181,72 +183,26 @@ async function serverData ({
         event:'Evento de visualización Mudi',
         valorMudi:1,
         sku:sku,
-
-        categoria:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--1.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--1.ph2.c-muted-2 > a').innerHTML : 'null',
-
-        subCategoria:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--2.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--2.ph2.c-muted-2 > a').innerHTML : 'null',
-
-        seccion:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--3.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--3.ph2.c-muted-2 > a').innerHTML : 'null',
-
-        subSeccion:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--4.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--4.ph2.c-muted-2 > a').innerHTML :'null',
-
         sistemaOperativo:OSdevice
     });
 
     /** Evento de intención de compra */
-    if (OSdevice ==='DESK'){
-      document.querySelector('body > div.render-container.render-route-store-product > div > div > div.vtex-store__template.bg-base > div > div > div > div:nth-child(4) > div > div:nth-child(2) > div > section > div > div:nth-child(3) > div > div:nth-child(8) > div > div > div > div > div > div > div > button > div').addEventListener('click',()=>{
-        dataLayer.push({
-            event:'Evento de intención de compra Mudi',
-            valorMudi:1,
-            sku:sku,
-
-            categoria:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--1.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--1.ph2.c-muted-2 > a').innerHTML : 'null',
-
-            subCategoria:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--2.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--2.ph2.c-muted-2 > a').innerHTML : 'null',
-    
-            seccion:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--3.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--3.ph2.c-muted-2 > a').innerHTML : 'null',
-    
-            subSeccion:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--4.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--4.ph2.c-muted-2 > a').innerHTML :'null',
-
-            sistemaOperativo:OSdevice
-        })
-      },false);
-    }else{
-      document.querySelector('body > div.render-container.render-route-store-product > div > div > div.vtex-store__template.bg-base > div > div > div > div:nth-child(3) > div > div:nth-child(3) > div > section > div > div:nth-child(3) > div > div:nth-child(8) > div > div > div > div > div > div > div > button > div').addEventListener('click',()=>{
-        dataLayer.push({
-            event:'Evento de intención de compra Mudi',
-            valorMudi:1,
-            sku:sku,
-            categoria:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--1.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--1.ph2.c-muted-2 > a').innerHTML : 'null',
-
-            subCategoria:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--2.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--2.ph2.c-muted-2 > a').innerHTML : 'null',
-
-            seccion:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--3.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--3.ph2.c-muted-2 > a').innerHTML : 'null',
-
-            subSeccion:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--4.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--4.ph2.c-muted-2 > a').innerHTML :'null',
-
-            sistemaOperativo:OSdevice
-        })
-      },false);
-    }
+    document.querySelector('.buy-in-page-button').addEventListener('click',()=>{
+      dataLayer.push({
+          event:'Evento de intención de compra Mudi',
+          valorMudi:1,
+          sku:sku,
+          sistemaOperativo:OSdevice
+      })
+    },false);
    
-
+   
     /** Evento de interación AR Mudi */
     document.getElementById('btnMudiAR').addEventListener('click',()=>{
         dataLayer.push({
             event:'Evento de interacción AR Mudi',
             valorMudi:1,
             sku:sku,
-
-            categoria:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--1.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--1.ph2.c-muted-2 > a').innerHTML : 'null',
-
-            subCategoria:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--2.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--2.ph2.c-muted-2 > a').innerHTML : 'null',
-
-            seccion:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--3.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--3.ph2.c-muted-2 > a').innerHTML : 'null',
-
-            subSeccion:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--4.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--4.ph2.c-muted-2 > a').innerHTML :'null',
-
             sistemaOperativo:OSdevice
         })
     },false);
@@ -257,15 +213,6 @@ async function serverData ({
             event:'Evento de interacción 3D Mudi',
             valorMudi:1,
             sku:sku,
-
-            categoria:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--1.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--1.ph2.c-muted-2 > a').innerHTML : 'null',
-
-            subCategoria:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--2.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--2.ph2.c-muted-2 > a').innerHTML : 'null',
-
-            seccion:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--3.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--3.ph2.c-muted-2 > a').innerHTML : 'null',
-
-            subSeccion:document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--4.ph2.c-muted-2 > a') ? document.querySelector('span.vtex-breadcrumb-1-x-arrow.vtex-breadcrumb-1-x-arrow--4.ph2.c-muted-2 > a').innerHTML :'null',
-
             sistemaOperativo:OSdevice
         })
     },false);
@@ -295,14 +242,22 @@ async function serverData ({
     sendDataLayer({sku:skuNumber})
   };
 
-  setTimeout(()=>{
-    MudiExperience({
-      tokenApi:'LXhG4UEYLjdz5fiN3AUr',
-      skuNumber:document.querySelector('.value-field.item').innerHTML,
-      idCompanyMudi:394,
-      color:'#d73e46',
-      containerBtns:document.querySelector('.zoomPad'),
-      zIndexModal:1000000,
-    });
+  const intervalo = setInterval(()=>{
+    if(!element1 || !element2){
+      return
+    }else{
+      clearInterval(intervalo);
+      MudiExperience({
+        tokenApi:'LXhG4UEYLjdz5fiN3AUr',
+        skuNumber:'21122',
+        idCompanyMudi:394,
+        color:'#d73e46',
+        containerBtns:element1,
+        zIndexModal:1000000,
+      });
+    }
+
+  },500)
+    
   
-  },6000);
+
