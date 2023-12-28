@@ -299,12 +299,10 @@ async function serverData ({
     MudiExperience({
       tokenApi:'LXhG4UEYLjdz5fiN3AUr',
       skuNumber:document.querySelector('.value-field.item').innerHTML,
-      idCompanyMudi:'0',
+      idCompanyMudi:394,
       color:'#d73e46',
       containerBtns:document.querySelector('.zoomPad'),
       zIndexModal:1000000,
     });
   
   },6000);
-
-console.log('probanding');
