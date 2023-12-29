@@ -242,11 +242,11 @@ async function MudiExperience({
   sendDataLayer({ sku: skuNumber })
 };
 
-const intervalo = setInterval(() => {
+const intervaloPDP = setInterval(() => {
   if (!element1 || !element2) {
     return
   } else {
-    clearInterval(intervalo);
+    clearInterval(intervaloPDP);
     MudiExperience({
       tokenApi: 'LXhG4UEYLjdz5fiN3AUr',
       skuNumber: document.querySelector('.value-field.item').innerHTML,
